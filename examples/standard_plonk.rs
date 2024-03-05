@@ -7,7 +7,7 @@ use halo2_proofs::{
     poly::Rotation,
 };
 
-use group::ff::Field;
+use ff::Field;
 
 #[derive(Clone, Copy)]
 // it is standard practice to define everything where numbers are in a generic prime field `F` (`FieldExt` are the traits of a prime field)
@@ -117,11 +117,10 @@ impl<F: PrimeField> Circuit<F> for StandardPlonk<F> {
 
 fn main() {
     use halo2_proofs::{dev::MockProver, pasta::Fp};
-    use rand::rngs::OsRng;
+    use rand_core::OsRng;
     let k = 5;
     let circuit = StandardPlonk { x: Value::known(Fp::random(OsRng)) };
     let prover = MockProver::run(k, &circuit, vec![]).unwrap();
-    println!("FULL PROVER: \n {:#?}", prover);
 }
 
 #[cfg(test)]
