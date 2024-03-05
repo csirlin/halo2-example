@@ -1,6 +1,6 @@
 use std::marker::PhantomData;
 
-use group::ff::Field;
+use ff::Field;
 use halo2_proofs::{
     circuit::{AssignedCell, Chip, Layouter, Region, SimpleFloorPlanner, Value},
     plonk::{Advice, Circuit, Column, ConstraintSystem, Error, Instance, Selector},
