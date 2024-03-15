@@ -6,7 +6,7 @@ use std::{
 };
 
 use ff::Field;
-use group::{Curve, Group};
+use {Curve, Group};
 use gumdrop::Options;
 use halo2_proofs::{arithmetic::best_multiexp, pasta::pallas};
 

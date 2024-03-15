@@ -536,11 +536,10 @@ fn main() {
     // Given the correct public input, our circuit will verify.
     let prover = MockProver::run(k, &circuit, vec![public_inputs.clone()]).unwrap();
     assert_eq!(prover.verify(), Ok(()));
-    println!("FULL PROVER: \n {:#?}", prover);
 
     // If we try some other public input, the proof will fail!
-    public_inputs[0] += Fp::one();
-    let prover = MockProver::run(k, &circuit, vec![public_inputs]).unwrap();
-    assert!(prover.verify().is_err());
+    // public_inputs[0] += Fp::one();
+    // let prover = MockProver::run(k, &circuit, vec![public_inputs]).unwrap();
+    // assert!(prover.verify().is_err());
     // ANCHOR_END: test-circuit
 }

@@ -1,8 +1,8 @@
 use std::marker::PhantomData;
 
-use group::ff::Field;
+use ff::Field;
 use halo2_proofs::{
-    circuit::{AssignedCell, Chip, Layouter, Region, SimpleFloorPlanner, Value}, dev::MockProver, plonk::{Advice, Circuit, Column, ConstraintSystem, Error, Expression, Fixed, Instance, Selector}, poly::Rotation
+    circuit::{AssignedCell, Chip, Layouter, Region, SimpleFloorPlanner, Value}, dev::MockProver, plonk::{Advice, Circuit, Column, ConstraintSystem, Error, Fixed, Instance, Selector}, poly::Rotation
 };
 use pasta_curves::Fp;
 

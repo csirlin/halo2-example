@@ -377,45 +377,6 @@ fn main() {
     // Given the correct public input, our circuit will verify.
     let prover = MockProver::run(k, &circuit, vec![public_inputs.clone()]).unwrap();
     assert_eq!(prover.verify(), Ok(()));
-    // sleep(std::time::Duration::from_secs(2));
-    // let empty_circuit = circuit.without_witnesses();
-    // let empty_prover = MockProver::run(k, &empty_circuit, vec![public_inputs.clone()]).unwrap();
-    
-    // print_class(prover);
-
-    // If we try some other public input, the proof will fail!
-    public_inputs[0] += Fp::one();
-    // let mut prover = MockProver::run(k, &circuit, vec![public_inputs]).unwrap();
-    // assert!(prover.verify().is_err());
-    // ANCHOR_END: test-circuit
-    
-    // CircuitLayout - check layout.png
-    use plotters::prelude::*;
-    let root = plotters::prelude::BitMapBackend::new("layout.png", (1024, 768)).into_drawing_area();
-    root.fill(&WHITE).unwrap();
-    let root = root
-        .titled("Example Circuit Layout", ("sans-serif", 60))
-        .unwrap();
-
-    halo2_proofs::dev::CircuitLayout::default()
-        // You can optionally render only a section of the circuit.
-        //.view_width(0..2)
-        //.view_height(0..16)
-        // You can hide labels, which can be useful with smaller areas.
-        .show_labels(true)
-        // Render the circuit onto your area!
-        // The first argument is the size parameter for the circuit.
-        .render(4, &circuit, &root)
-        .unwrap();
-
-    // Generate the DOT graph string.
-    let dot_string = halo2_proofs::dev::circuit_dot_graph(&circuit);
-
-    // Now you can either handle it in Rust, or just
-    // print it out to use with command-line tools.
-    // prover.print_cellsets();
-    // prover.print_trackers();
-    // prover.output();
 }
 
 

@@ -284,9 +284,9 @@ fn main() {
     let k = 4;
     let a1 = Fp::from(25);
     let a2 = Fp::from(52);
-    let public_inputs = vec![a1];
+    let public_inputs = vec![a1, a2];
 
-    let prover = MockProver::run(k, &circuit, vec![]).unwrap();
+    let prover = MockProver::run(k, &circuit, vec![public_inputs]).unwrap();
     assert_eq!(prover.verify(), Ok(()));
     println!("FULL PROVER: \n {:#?}", prover);
 
